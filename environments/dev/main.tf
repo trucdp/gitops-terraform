@@ -1,5 +1,6 @@
 data "aws_availability_zones" "available" {}
 
+
 locals {
   name   = "${basename(path.cwd)}-vpc"
   region = "us-east-1"

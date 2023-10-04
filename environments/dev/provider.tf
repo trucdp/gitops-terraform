@@ -1,17 +1,14 @@
 terraform {
+  required_version = ">= 1.4"
+
   required_providers {
-    tencentcloud = {
-      source  = "tencentcloudstack/tencentcloud"
-      version = "1.77.8"
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.0"
     }
-  }
-  backend "cos" {
-    region = "ap-guangzhou"
-    bucket = "keep-gitops-dev-1308919341"
-    prefix = "terraform/state"
   }
 }
 
-provider "tencentcloud" {
-  region = "ap-guangzhou"
+provider "aws" {
+  region = local.region
 }
